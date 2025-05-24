@@ -12,7 +12,7 @@
     <script type="text/babel">
       // 🐶 Fait une fonction 'paragraphe' qui retourne l'element <p> avec le texte
 
-      const paragraphe = (children) => {
+      const Paragraphe = ({ children }) => {
         return <p className="parapgraphe">{children}</p>
       }
       // 🐶 Utilise cette fonction à la place des balises <p>
@@ -20,9 +20,9 @@
       const divElement = (
         <div className="rootContainer">
           <h1>Bienvenue sur mon site</h1>
-          {paragraphe("Lorem Ipsum is simply dummy text ...")}
-          {paragraphe("Lorem Ipsum has been the industry ...")}
-          {paragraphe("when an unknown printer took a galley ...")}
+          <Paragraphe children="Lorem Ipsum is simply dummy text ..." />
+          <Paragraphe children="Lorem Ipsum has been the industry ..." />
+          <Paragraphe children="when an unknown printer took a galley ..." />
         </div>
       )
 
