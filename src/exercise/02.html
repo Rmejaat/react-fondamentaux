@@ -5,24 +5,33 @@
   <head>
     <!-- 🐶 Ajoute React et ReactDOM dans la page HTML -->
     <!-- 🤖 Ci dessous le code qui permet de charger React depuis un serveur unkg -->
-    <!--
+
     <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
-      -->
   </head>
   <body>
     <div id="root"></div>
     <script>
-      const rootEl = document.getElementById('root')
+      const rootEl = document.getElementById("root")
 
       // Il va falloir maintenant réimplémenter ce code en React
       // ⛏️ Remplace les 3 lignes suivantes
       // 🤖 Utilise React.createElement
-      const divEl = document.createElement('div')
-      divEl.textContent = 'Bienvenue sur mon site'
-      divEl.className = 'rootContainer'
+      // const divEl = document.createElement('div')
+      // divEl.textContent = 'Bienvenue sur mon site'
+      // divEl.className = 'rootContainer'I
 
-      document.getElementById('root').append(divEl)
+      const divEl = React.createElement("div", { className: "rootContainer" }, [
+        React.createElement("h1", null, "Bienvenue"),
+        React.createElement("h2", null, "Commencez ici"),
+        React.createElement(
+          "p",
+          null,
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+        ),
+      ])
+      ReactDOM.render(divEl, rootEl)
+      // document.getElementById("root").append(divEl)
     </script>
   </body>
 </html>
