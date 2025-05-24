@@ -12,20 +12,21 @@
     <script type="text/babel">
       // 🐶 Fait une fonction 'paragraphe' qui retourne l'element <p> avec le texte
 
+      const paragraphe = (children) => {
+        return <p className="parapgraphe">{children}</p>
+      }
       // 🐶 Utilise cette fonction à la place des balises <p>
       // 🤖 {paragraphe({children:'Lorem Ipsum ...'})}
       const divElement = (
         <div className="rootContainer">
           <h1>Bienvenue sur mon site</h1>
-          <p className="paragraphe">Lorem Ipsum is simply dummy text ... </p>
-          <p className="paragraphe">Lorem Ipsum has been the industry ...</p>
-          <p className="paragraphe">
-            when an unknown printer took a galley ...
-          </p>
+          {paragraphe("Lorem Ipsum is simply dummy text ...")}
+          {paragraphe("Lorem Ipsum has been the industry ...")}
+          {paragraphe("when an unknown printer took a galley ...")}
         </div>
       )
 
-      ReactDOM.render(divElement, document.getElementById('root'))
+      ReactDOM.render(divElement, document.getElementById("root"))
     </script>
   </body>
 </html>
