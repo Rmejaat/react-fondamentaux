@@ -9,6 +9,10 @@ const PracticeContent = ({ children }: { children: JSX.Element }) => {
     setIsClient(true)
   }, [])
 
+  if (!isClient) {
+    return null
+  }
+
   return isClient && children
 }
 
