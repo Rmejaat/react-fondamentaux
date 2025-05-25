@@ -1,8 +1,6 @@
 // Ajouter du Style CSS
 // http://localhost:3000/alone/exercise/05.js
 
-import * as React from 'react'
-
 // 🐶 Créé un composant ButtonActions
 // 🐶 Conditionne le rendu en fonction d'un prop 'isAdmin'
 // Si isAdmin est false alors on affichera que le bouton 'Lire'
@@ -13,13 +11,23 @@ const buttonCreate = <button>Créer</button>
 const buttonUpdate = <button>Modifier</button>
 const buttonDelete = <button>Supprimer</button>
 
-function App() {
-  return (
-    <div>
+const ButtonActions = ({ isAdmin }) => {
+  return isAdmin ? (
+    <>
       {buttonRead}
       {buttonCreate}
       {buttonUpdate}
       {buttonDelete}
+    </>
+  ) : (
+    <> {buttonRead}</>
+  )
+}
+
+function App() {
+  return (
+    <div>
+      <ButtonActions isAdmin={true} />
     </div>
   )
 }
