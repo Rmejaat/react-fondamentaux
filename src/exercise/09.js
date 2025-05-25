@@ -6,15 +6,20 @@ import { useState } from "react"
 // http://localhost:3000/alone/exercise/08.js
 
 function LoginForm() {
-  const [email, setEmail] = useState()
+  const [email, setEmail] = useState("")
+  const [error, setError] = useState()
 
   const handleChange = (e) => {
     setEmail(e.target.value)
+    setError(e.target.value.includes("@") ? true : false)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     alert(`Bonjour ${email}`)
+  }
+  const handleHidden = () => {
+    return
   }
 
   // 🐶 Gère l'événement onSubmit de <form> en créant une fonction 'handleSubmit'
@@ -36,6 +41,9 @@ function LoginForm() {
         />
       </label>
       <input type="submit" value="Connexion" />
+      <div hidden={error} style={{ color: red }}>
+        L'email est non valide
+      </div>
     </form>
   )
 }
