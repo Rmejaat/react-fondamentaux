@@ -1,8 +1,7 @@
 // Ajouter du Style CSS
 // http://localhost:3000/isolated/exercise/05.js
 
-import * as React from 'react'
-import '../05-styles.css'
+import "../05-styles.css"
 
 // 🐶 Met du style sur les 3 conteneurs en te basant sur leur texte.
 // 🐶 Nous avons importé le fichier CSS qui contient des classes
@@ -16,9 +15,30 @@ import '../05-styles.css'
 // et la couleur du texte
 // 🤖 style:{{color:'white', backgroundColor:'red'}}
 
-const smallContainer = <div>Petit conteneur dark texte blanc</div>
-const mediumContainer = <div>Moyen conteneur rose texte noire</div>
-const largeContainer = <div>Grand conteneur vert rose texte noire</div>
+const smallContainer = (
+  <div
+    className="container--small container"
+    style={{ backgroundColor: "black", color: "white" }}
+  >
+    Petit conteneur dark texte blanc
+  </div>
+)
+const mediumContainer = (
+  <div
+    className="container--medium container"
+    style={{ backgroundColor: "pink", color: "black" }}
+  >
+    Moyen conteneur rose texte noire
+  </div>
+)
+const largeContainer = (
+  <div
+    className="container--large container"
+    style={{ backgroundColor: "green", color: "black" }}
+  >
+    Grand conteneur vert rose texte noire
+  </div>
+)
 
 function App() {
   return (
