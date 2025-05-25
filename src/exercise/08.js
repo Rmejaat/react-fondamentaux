@@ -24,7 +24,7 @@ const skills = [
 
 // 🐶 Créé un button dans le render et sur l'evenement onclick passer la fonction 'addSkillPython'
 // 🤖 <button onClick={addSkillPython}
-const MesSkills = () => {
+const MesSkills = ({ skills }) => {
   return (
     <>
       <ul>
@@ -38,7 +38,7 @@ const MesSkills = () => {
 }
 
 function App() {
-  return <MesSkills />
+  return <MesSkills skills={skills} />
 }
 
 export default App
