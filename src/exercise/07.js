@@ -18,13 +18,33 @@ function MesSkills() {
 }*/
 }
 
-const skills = ["HTML", "CSS", "JS", "REACT", "ANGULAR"]
+{
+  /*const skills = ["HTML", "CSS", "JS", "REACT", "ANGULAR"]
 
 const MesSkills = () => {
   return (
     <ul>
       {skills.map((skill, index) => (
         <li key={index}>{skill}</li>
+      ))}
+    </ul>
+  )
+}*/
+}
+
+const skills = [
+  { id: "e313", value: "HTML" },
+  { id: "f980", value: "CSS" },
+  { id: "11eb", value: "JS" },
+  { id: "9a03", value: "REACT" },
+  { id: "65d4", value: "ANGULAR" },
+]
+
+const MesSkills = () => {
+  return (
+    <ul>
+      {skills.map((skill) => (
+        <li key={skill.id}>{skill.value}</li>
       ))}
     </ul>
   )
