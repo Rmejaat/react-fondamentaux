@@ -1,12 +1,17 @@
 "use client"
+
+import { useRef } from "react"
+
 // Les formulaires
 // http://localhost:3000/alone/exercise/08.js
 
 function LoginForm() {
   const handleSubmit = (e) => {
     e.preventDefault()
-    alert(`Bonjour ${e.target.elements.emailInput.value}`)
+    alert(`Bonjour ${inputRef.current.value}`)
   }
+
+  const inputRef = useRef()
   // 🐶 Gère l'événement onSubmit de <form> en créant une fonction 'handleSubmit'
   // 🤖 <form onSubmit={handleSubmit}>
   // 🤖 Utilise `event.preventDefault()` dans la fonction handleSubmit pour stopper
@@ -18,7 +23,7 @@ function LoginForm() {
     <form onSubmit={handleSubmit}>
       <label>
         Adresse email :
-        <input type="text" name="emailInput" />
+        <input type="text" name="emailInput" ref={inputRef} />
       </label>
       <input type="submit" value="Connexion" />
     </form>
