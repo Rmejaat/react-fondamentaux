@@ -3,16 +3,31 @@
 
 // 🐶 Le code suivant génère un warning :  Warning: Each child in a list should have a unique "key" prop
 
-const skills = []
+{
+  /*const skills = []
 // 🐶 Corrige ce code avec des keys uniques sur les elements <li>
-skills.push(<li key="HTML">HTML</li>)
-skills.push(<li key="CSS">CSS</li>)
-skills.push(<li key="JS">JS</li>)
-skills.push(<li key="REACT">REACT</li>)
-skills.push(<li key="ANGULAR">ANGULAR</li>)
+skills.push(<li>HTML</li>)
+skills.push(<li>CSS</li>)
+skills.push(<li>JS</li>)
+skills.push(<li>REACT</li>)
+skills.push(<li>ANGULAR</li>)
+
 
 function MesSkills() {
   return <ul>{skills.map((skill) => skill)}</ul>
+}*/
+}
+
+const skills = ["HTML", "CSS", "JS", "REACT", "ANGULAR"]
+
+const MesSkills = () => {
+  return (
+    <ul>
+      {skills.map((skill, index) => (
+        <li key={index}>{skill}</li>
+      ))}
+    </ul>
+  )
 }
 
 function App() {
