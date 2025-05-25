@@ -15,7 +15,8 @@ import "../05-styles.css"
 // et la couleur du texte
 // 🤖 style:{{color:'white', backgroundColor:'red'}}
 
-const smallContainer = (
+{
+  /*const smallContainer = (
   <div
     className="container--small container"
     style={{ backgroundColor: "black", color: "white" }}
@@ -38,14 +39,41 @@ const largeContainer = (
   >
     Grand conteneur vert rose texte noire
   </div>
-)
+)*/
+}
+
+const Container = ({ className, style, children }) => {
+  return (
+    <div
+      className={`container ${className}`}
+      style={{ border: "1px solid", ...style }}
+    >
+      {children}
+    </div>
+  )
+}
 
 function App() {
   return (
     <div>
-      {smallContainer}
-      {mediumContainer}
-      {largeContainer}
+      <Container
+        className="container--small"
+        style={{ backgroundColor: "darkslateblue", color: "white" }}
+      >
+        Petit conteneur dark texte blanc
+      </Container>
+      <Container
+        className="container--medium"
+        style={{ backgroundColor: "pink", color: "black" }}
+      >
+        Moyen conteneur rose texte noire
+      </Container>
+      <Container
+        className="container--large"
+        style={{ backgroundColor: "green", color: "black" }}
+      >
+        Grand conteneur vert rose texte noire
+      </Container>
     </div>
   )
 }
