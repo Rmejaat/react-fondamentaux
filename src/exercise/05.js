@@ -42,11 +42,12 @@ const largeContainer = (
 )*/
 }
 
-const Container = ({ className, style, children }) => {
+const Container = ({ className = "", style, children, color, size }) => {
+  const sizeClass = size ? `container--${size}` : ""
   return (
     <div
-      className={`container ${className}`}
-      style={{ border: "1px solid", ...style }}
+      className={`container ${sizeClass} ${className}`}
+      style={{ border: "1px solid", color, ...style }}
     >
       {children}
     </div>
@@ -56,24 +57,24 @@ const Container = ({ className, style, children }) => {
 function App() {
   return (
     <div>
-      <Container
-        className="container--small"
-        style={{ backgroundColor: "darkslateblue", color: "white" }}
-      >
+      <Container color="white" style={{ backgroundColor: "darkslateblue" }}>
         Petit conteneur dark texte blanc
       </Container>
       <Container
-        className="container--medium"
-        style={{ backgroundColor: "pink", color: "black" }}
+        color="black"
+        size="medium"
+        style={{ backgroundColor: "pink" }}
       >
         Moyen conteneur rose texte noire
       </Container>
       <Container
-        className="container--large"
-        style={{ backgroundColor: "green", color: "black" }}
+        color="black"
+        size="large"
+        style={{ backgroundColor: "green" }}
       >
         Grand conteneur vert rose texte noire
       </Container>
+      <Container size="custom">Custom</Container>
     </div>
   )
 }
