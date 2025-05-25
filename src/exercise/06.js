@@ -30,22 +30,17 @@ const GuestActions = () => {
   )
 }
 
-const ButtonActions = ({ isAdmin }) => {
-  return isAdmin ? (
-    <>
-      <AdminActions />
-    </>
-  ) : (
-    <>
-      <GuestActions />
-    </>
-  )
+const ButtonActions = ({ isAdmin, hidden }) => {
+  if (hidden) {
+    return null
+  }
+  return isAdmin ? <AdminActions /> : <GuestActions />
 }
 
 function App() {
   return (
     <div>
-      <ButtonActions isAdmin={false} />
+      <ButtonActions isAdmin={false} hidden={false} />
     </div>
   )
 }
