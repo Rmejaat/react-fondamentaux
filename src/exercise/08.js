@@ -1,4 +1,7 @@
 "use client"
+
+import { useState } from "react"
+
 // Les States
 // http://localhost:3000/alone/exercise/08.js
 
@@ -8,13 +11,7 @@
 // 🐶 dans la fonction 'addSkillPython' logue le tableau skills
 // 🤖 console.log('skills',skills)
 
-const addSkillPython = () => {
-  const id = Math.floor(Math.random() * 1000)
-  skills.push({ id, value: "Python" })
-  console.log("skills", skills)
-}
-
-const skills = [
+const initialSkills = [
   { id: "e313", value: "HTML" },
   { id: "f980", value: "CSS" },
   { id: "11eb", value: "JS" },
@@ -24,7 +21,14 @@ const skills = [
 
 // 🐶 Créé un button dans le render et sur l'evenement onclick passer la fonction 'addSkillPython'
 // 🤖 <button onClick={addSkillPython}
-const MesSkills = ({ skills }) => {
+const MesSkills = () => {
+  const [skills, setSkills] = useState(initialSkills)
+
+  const addSkillPython = () => {
+    const id = Math.random()
+    setSkills([...skills, { id, value: "Python" }])
+  }
+
   return (
     <>
       <ul>
@@ -38,7 +42,7 @@ const MesSkills = ({ skills }) => {
 }
 
 function App() {
-  return <MesSkills skills={skills} />
+  return <MesSkills />
 }
 
 export default App
