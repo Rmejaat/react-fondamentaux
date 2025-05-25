@@ -1,17 +1,22 @@
 "use client"
 
-import { useRef } from "react"
+import { useState } from "react"
 
 // Les formulaires
 // http://localhost:3000/alone/exercise/08.js
 
 function LoginForm() {
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    alert(`Bonjour ${inputRef.current.value}`)
+  const [email, setEmail] = useState()
+
+  const handleChange = (e) => {
+    setEmail(e.target.value)
   }
 
-  const inputRef = useRef()
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    alert(`Bonjour ${email}`)
+  }
+
   // 🐶 Gère l'événement onSubmit de <form> en créant une fonction 'handleSubmit'
   // 🤖 <form onSubmit={handleSubmit}>
   // 🤖 Utilise `event.preventDefault()` dans la fonction handleSubmit pour stopper
@@ -23,7 +28,12 @@ function LoginForm() {
     <form onSubmit={handleSubmit}>
       <label>
         Adresse email :
-        <input type="text" name="emailInput" ref={inputRef} />
+        <input
+          type="text"
+          name="emailInput"
+          value={email}
+          onChange={handleChange}
+        />
       </label>
       <input type="submit" value="Connexion" />
     </form>
